@@ -15,4 +15,19 @@ public class TaskManager
     {
         return _tasks;
     }
+
+    public void AddTask(string title, string description)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool RemoveTask(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool MarkTaskAsDone(int id)
+    {
+        throw new NotImplementedException();
+    }
 }
