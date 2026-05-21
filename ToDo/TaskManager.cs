@@ -4,11 +4,10 @@ using System.Collections.Generic;
 public class TaskManager
 {
     private List<TaskItem> _tasks;
-    private JsonRepository _repository;
 
     public TaskManager()
     {
-        _repository = new JsonRepository();
+        _tasks = new List<TaskItem>();
     }
     
     public List<TaskItem> GetAllTasks()
@@ -18,7 +17,15 @@ public class TaskManager
 
     public void AddTask(string title, string description)
     {
-        throw new NotImplementedException();
+        int newId = _tasks.Count + 1;
+
+        TaskItem task = new TaskItem();
+        task.Title = title;
+        task.Description = description;
+        task.Id = newId;
+        task.IsCompleted = false;
+        
+        _tasks.Add(task);
     }
 
     public bool RemoveTask(int id)
