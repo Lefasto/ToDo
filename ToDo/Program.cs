@@ -16,6 +16,7 @@ class Program
             Console.WriteLine("3) Aufgabe als erledigt markieren");
             Console.WriteLine("4) Aufgabe löchen");
             Console.WriteLine("0) Beenden");
+            Console.WriteLine("---------------------------------------------------");
             Console.Write("Auswahl: ");
             
             string? input = Console.ReadLine();
@@ -49,7 +50,7 @@ class Program
         }
     }
 
-    static void ShowTasks(TaskManager manager)
+    private static void ShowTasks(TaskManager manager)
     {
         var tasks = manager.GetAllTasks();
 
@@ -65,12 +66,12 @@ class Program
         }
     }
 
-    static void AddTask(TaskManager manager)
+    private static void AddTask(TaskManager manager)
     {
-        Console.WriteLine("Titel: ");
+        Console.Write("Titel: ");
         string? title = Console.ReadLine();
 
-        Console.WriteLine("Beschreibung: ");
+        Console.Write("Beschreibung: ");
         string? description = Console.ReadLine();
         
         manager.AddTask(title, description);

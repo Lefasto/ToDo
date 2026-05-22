@@ -17,6 +17,6 @@ public class TaskItem
         string status = IsCompleted ? "✓ erledigt" : "✗ offen";
         return $"[{Id}]: {Title}\n" +
                $"     Status         : {status}\n" +
-               $"     Beschreibung   : {Description} ";
+               $"     Beschreibung   : {Description}";
     }
 }
