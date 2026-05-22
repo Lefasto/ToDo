@@ -2,7 +2,7 @@
 
 class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         TaskManager manager = new TaskManager();
         bool running = true;
@@ -18,7 +18,7 @@ class Program
             Console.WriteLine("0) Beenden");
             Console.Write("Auswahl: ");
             
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
             switch (input)
             {
@@ -61,17 +61,17 @@ class Program
 
         foreach (var task in tasks)
         {
-            Console.WriteLine($"{task.Id}: {task.Title}");
+            Console.WriteLine($"{task}");
         }
     }
 
     static void AddTask(TaskManager manager)
     {
         Console.WriteLine("Titel: ");
-        string title = Console.ReadLine();
+        string? title = Console.ReadLine();
 
         Console.WriteLine("Beschreibung: ");
-        string description = Console.ReadLine();
+        string? description = Console.ReadLine();
         
         manager.AddTask(title, description);
         Console.WriteLine("Aufgabe wurde hinzugefügt");

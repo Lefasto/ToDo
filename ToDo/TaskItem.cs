@@ -11,4 +11,12 @@ public class TaskItem
     {
         IsCompleted = true;
     }
+
+    public override string ToString()
+    {
+        string status = IsCompleted ? "✓ erledigt" : "✗ offen";
+        return $"[{Id}]: {Title}\n" +
+               $"     Status         : {status}\n" +
+               $"     Beschreibung   : {Description} ";
+    }
 }

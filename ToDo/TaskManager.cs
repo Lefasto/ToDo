@@ -4,10 +4,12 @@ using System.Collections.Generic;
 public class TaskManager
 {
     private List<TaskItem> _tasks;
+    private JsonRepository _repository;
 
     public TaskManager()
     {
-        _tasks = new List<TaskItem>();
+        _repository = new JsonRepository();
+        _tasks = _repository.Load();
     }
     
     public List<TaskItem> GetAllTasks()
@@ -26,6 +28,7 @@ public class TaskManager
         task.IsCompleted = false;
         
         _tasks.Add(task);
+        _repository.Save(_tasks);
     }
 
     public bool RemoveTask(int id)
