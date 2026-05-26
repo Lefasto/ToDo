@@ -34,6 +34,6 @@ Die Anwendung basiert auf einer Schichtenarchitektur:
 
 ```mermaid
 classDiagram
-TaskManager --> ITaskRepository
-ITaskRepository <|-- JsonTaskRepository
+TaskManager --> IJsonRepository
+IJsonRepository <|-- JsonRepository
 ```
