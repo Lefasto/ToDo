@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
 
-public class JsonRepository
+public class JsonRepository : IJsonRepository
 {
-    private string _filePath = "tasks.json";
+    private string _filePath;
+
+    public JsonRepository(string filePath)
+    {
+        _filePath = filePath;
+    }
     public List<TaskItem> Load()
     {
         if (!File.Exists(_filePath))

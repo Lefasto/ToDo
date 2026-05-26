@@ -4,11 +4,11 @@ using System.Collections.Generic;
 public class TaskManager
 {
     private List<TaskItem> _tasks;
-    private JsonRepository _repository;
+    private IJsonRepository _repository;
 
-    public TaskManager()
+    public TaskManager(IJsonRepository repository)
     {
-        _repository = new JsonRepository();
+        _repository = repository;
         _tasks = _repository.Load();
     }
     

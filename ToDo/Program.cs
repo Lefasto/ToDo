@@ -4,7 +4,11 @@ class Program
 {
     private static void Main(string[] args)
     {
-        TaskManager manager = new TaskManager();
+        NotebookManager notebookManager = new NotebookManager();
+        
+        IJsonRepository repository = SelectNotebook(notebookManager);
+        TaskManager manager = new TaskManager(repository);
+        
         bool running = true;
 
         while (running)
@@ -48,6 +52,54 @@ class Program
                     break;
             }
         }
+    }
+
+    static IJsonRepository SelectNotebook(NotebookManager notebookManager)
+    {
+        Console.WriteLine("Notebook auswählen:");
+        Console.WriteLine("1) vorhandenes Notebook öffnen");
+        Console.WriteLine("2) Neues Notebook erstellen");
+        
+        string input = Console.ReadLine();
+
+        if (input == "1")
+        {
+            var files = notebookManager.GetNotebooks();
+            
+            if (files.Length == 0) {
+                Console.WriteLine("Kein Notebook gefunden"); 
+                return CreateNewNotebook (notebookManager);
+            }
+                
+            for (int i = 0; i < files.Length; i++) {
+                Console.WriteLine($"({i + 1}) {Path.GetFileNameWithoutExtension(files[i])}");
+            }
+
+            Console.Write("Auswahl: ");
+
+            if (int.TryParse(Console.ReadLine(), out int index))
+            { 
+                if (index >= 1 && index <= files.Length)
+                { 
+                    string name = Path.GetFileNameWithoutExtension(files[index - 1]);
+                    return notebookManager.CreateRepository(name);
+                }
+            }
+            Console.WriteLine("Ungültige Auswahl"); 
+            return SelectNotebook(notebookManager);
+        }
+        else
+        {
+            return CreateNewNotebook(notebookManager);
+        }
+    }
+
+    static IJsonRepository CreateNewNotebook(NotebookManager notebookManager)
+    {
+        Console.Write("Name des neuen Notebooks: ");
+        string name = Console.ReadLine();
+        
+        return notebookManager.CreateRepository(name);
     }
 
     private static void ShowTasks(TaskManager manager)
