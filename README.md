@@ -58,7 +58,7 @@ class TaskItem {
     +MarkAsDone()
 }
 
-Programm --> TaskManager
+Program --> TaskManager
 TaskManager --> JsonRepository
 TaskManager --> TaskItem
 ```
