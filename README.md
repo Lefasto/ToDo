@@ -1,49 +1,39 @@
-# 📝 SE-GL Projekt – To-Do Konsolenanwendung (C#)
+# To-Do Konsolenanwendung (C#)
 
-## 📌 Projektbeschreibung
+## Projektbeschreibung
 
-Im Rahmen des SE-GL Projekts wurde eine Konsolenanwendung in C# entwickelt, die als To-Do-App zur Verwaltung von Aufgaben dient.
+Dieses Projekt ist eine Konsolenanwendung zur Verwaltung von Aufgaben.  
+Die Anwendung wurde im Rahmen der Ausbildung zum Fachinformatiker für Anwendungsentwicklung erstellt.
 
-Die Anwendung ermöglicht es dem Benutzer, Aufgaben zu:
-- erstellen
-- anzeigen
-- als erledigt markieren
-- löschen
+## Features
 
-Die Daten werden persistent in einer JSON-Datei gespeichert.
+- Aufgaben erstellen
+- Aufgaben anzeigen
+- Aufgaben als erledigt markieren
+- Aufgaben löschen
+- Persistente Speicherung (JSON)
+- Multi-Notebook-System (mehrere Aufgabenlisten)
 
----
+## Architektur
 
-## 🎯 Ziel des Projekts
+Die Anwendung basiert auf einer Schichtenarchitektur:
 
-Ziel des Projekts ist es, grundlegende Konzepte der Softwareentwicklung praxisnah umzusetzen, insbesondere:
+- Program → Benutzeroberfläche
+- TaskManager → Geschäftslogik
+- ITaskRepository → Abstraktion
+- JsonTaskRepository → Persistenz
 
-- Objektorientierte Programmierung (OOP)
-- Trennung von Verantwortlichkeiten (Schichtenarchitektur)
-- Dateiverarbeitung
-- JSON-Serialisierung mit `System.Text.Json`
-- Fehlerbehandlung
+## Technologien
 
----
+- C#
+- .NET
+- System.Text.Json
+- JSON
 
-## ⚙️ Funktionen
+## 📊 Architekturdiagramm
 
-Die Anwendung bietet folgende Funktionalitäten:
-
-- ➕ Aufgabe hinzufügen
-- 📋 Aufgaben anzeigen
-- ✅ Aufgabe als erledigt markieren
-- 🗑️ Aufgabe löschen
-- 💾 Automatische Speicherung in JSON-Datei
-
----
-
-## 🧱 Projektstruktur
-
-```text
-ToDoApp/
-│
-├── Program.cs           # Benutzeroberfläche (Konsole)
-├── TaskItem.cs          # Datenmodell einer Aufgabe
-├── TaskManager.cs       # Geschäftslogik (CRUD)
-└── JsonRepository.cs    # Datenhaltung (JSON)
+```mermaid
+classDiagram
+TaskManager --> IJsonRepository
+IJsonRepository <|-- JsonRepository
+```
