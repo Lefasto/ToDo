@@ -31,13 +31,28 @@ public class TaskManager
         _repository.Save(_tasks);
     }
 
-    public bool RemoveTask(int id)
+    public void RemoveTask(int id)
     {
-        throw new NotImplementedException();
+        for(int i = 0; i < _tasks.Count; i++){
+            
+            if(_tasks[i].Id == id){
+                _tasks.RemoveAt(i);
+                _repository.Save(_tasks);
+                return;
+            }
+        }
     }
 
-    public bool MarkTaskAsDone(int id)
+    public void MarkTaskAsDone(int id)
     {
-        throw new NotImplementedException();
+        foreach (var task in _tasks)
+        {
+            if (task.Id == id)
+            {
+                task.IsCompleted = true;
+                _repository.Save(_tasks);
+                return;
+            }
+        }
     }
 }

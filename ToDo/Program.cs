@@ -32,11 +32,11 @@ class Program
                     break;
                 
                 case "3":
-                    Console.WriteLine("Funktion wird noch implentiert");
+                    CompleteTask(manager);
                     break;
                 
                 case "4":
-                    Console.WriteLine("Funktion wird noch implentiert");
+                    DeleteTask(manager);
                     break;
                 
                 case "0":
@@ -76,5 +76,35 @@ class Program
         
         manager.AddTask(title, description);
         Console.WriteLine("Aufgabe wurde hinzugefügt");
+    }
+
+    private static void CompleteTask(TaskManager manager)
+    {
+        Console.Write("ID der Aufgabe: ");
+
+        if (int.TryParse(Console.ReadLine(), out int id))
+        {
+            manager.MarkTaskAsDone(id);
+            Console.WriteLine("Aufgabe wurde als erledigt markiert.");
+        }
+        else
+        {
+            Console.WriteLine("Ungültige Eingabe.");
+        }
+    }
+
+    private static void DeleteTask(TaskManager manager)
+    {
+        Console.Write("ID der Aufgabe: ");
+
+        if (int.TryParse(Console.ReadLine(), out int id))
+        {
+            manager.RemoveTask(id);
+            Console.WriteLine("Aufgabe wurde gelöscht.");
+        }
+        else
+        {
+            Console.WriteLine("Ungültige Eingabe.");
+        }
     }
 }
