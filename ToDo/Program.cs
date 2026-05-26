@@ -23,7 +23,7 @@ class Program
             Console.WriteLine("---------------------------------------------------");
             Console.Write("Auswahl: ");
             
-            string? input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             switch (input)
             {
@@ -72,7 +72,8 @@ class Program
             }
                 
             for (int i = 0; i < files.Length; i++) {
-                Console.WriteLine($"({i + 1}) {Path.GetFileNameWithoutExtension(files[i])}");
+                string displayName = Path.GetFileNameWithoutExtension(files[i].Replace("notebook_", ""));
+                Console.WriteLine($"({i + 1}) {displayName}");
             }
 
             Console.Write("Auswahl: ");
@@ -81,8 +82,8 @@ class Program
             { 
                 if (index >= 1 && index <= files.Length)
                 { 
-                    string name = Path.GetFileNameWithoutExtension(files[index - 1]);
-                    return notebookManager.CreateRepository(name);
+                    string filePath = files[index - 1];
+                    return notebookManager.LoadNotebook(filePath);
                 }
             }
             Console.WriteLine("Ungültige Auswahl"); 
