@@ -13,6 +13,7 @@ Die Anwendung wurde im Rahmen der Ausbildung zum Fachinformatiker für Anwendung
 - Aufgaben löschen
 - Persistente Speicherung (JSON)
 - Multi-Notebook-System (mehrere Aufgabenlisten)
+- Multi-Notebook-System (mehrere Aufgabenlisten als spätere Erweiterung)
 
 ## Architektur
 
