@@ -49,15 +49,9 @@ TaskManager --> TaskItem
 
 # Live Demo
 
-## Ablauf
-
-- Programm starten
-- Notebook auswählen
-- Menü anzeigen
-
 ---
 
-# Übergang
+# Technischer Aspekt
 
 Ich gehe nun auf einen besonderen technischen Aspekt ein:
 
@@ -137,7 +131,7 @@ public TaskManager(IJsonRepository repository)
 # Multi-Notebook Bezug
 
 - jede Datei eigenes Repository
-- gleiche Logik bleibt erhalten
+- Geschäftslogik bleibt erhalten
 
 ---
 
