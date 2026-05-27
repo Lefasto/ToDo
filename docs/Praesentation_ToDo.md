@@ -1,5 +1,4 @@
 # To-Do Konsolenanwendung (C#)
-## Präsentation (Obsidian Slides)
 
 ---
 
@@ -58,20 +57,11 @@ TaskManager --> TaskItem
 
 ---
 
-# Live Demo – Funktionen
-
-- Aufgabe hinzufügen
-- Aufgaben anzeigen
-- Aufgabe erledigen
-- Aufgabe löschen
-
----
-
 # Übergang
 
 Ich gehe nun auf einen besonderen technischen Aspekt ein:
 
-👉 Repository Design Pattern
+👉 Nutzung des Repository Design Patterns
 
 ---
 
@@ -102,7 +92,7 @@ TaskManager → Repository → Daten
 # Struktur nach Umsetzung
 
 ```text
-TaskManager → ITaskRepository → JsonTaskRepository
+TaskManager → IJsonRepository → JsonRepository
 ```
 
 ---
@@ -110,7 +100,7 @@ TaskManager → ITaskRepository → JsonTaskRepository
 # Interface
 
 ```csharp
-public interface ITaskRepository
+public interface IJsonRepository
 {
     List<TaskItem> Load();
     void Save(List<TaskItem> tasks);
@@ -122,7 +112,7 @@ public interface ITaskRepository
 # TaskManager
 
 ```csharp
-public TaskManager(ITaskRepository repository)
+public TaskManager(IJsonRepository repository)
 ```
 
 - kennt keine konkrete Implementierung
