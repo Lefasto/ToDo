@@ -1,7 +1,5 @@
-namespace ToDo;
-using System.Collections.Generic;
 using System.Text.Json;
-using System.IO;
+namespace ToDo;
 
 public class JsonRepository : IJsonRepository
 {
