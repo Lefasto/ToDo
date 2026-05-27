@@ -12,6 +12,7 @@ Die Anwendung wurde im Rahmen der Ausbildung zum Fachinformatiker für Anwendung
 - Aufgaben als erledigt markieren
 - Aufgaben löschen
 - Persistente Speicherung (JSON)
+- Multi-Notebook-System (mehrere Aufgabenlisten)
 - Multi-Notebook-System (mehrere Aufgabenlisten als spätere Erweiterung)
 
 ## Architektur
@@ -20,7 +21,8 @@ Die Anwendung basiert auf einer Schichtenarchitektur:
 
 - Program → Benutzeroberfläche
 - TaskManager → Geschäftslogik
-- JsonRepository → Persistenz
+- ITaskRepository → Abstraktion
+- JsonTaskRepository → Persistenz
 
 ## Technologien
 
@@ -29,36 +31,10 @@ Die Anwendung basiert auf einer Schichtenarchitektur:
 - System.Text.Json
 - JSON
 
-## 📊 Architekturdiagramm
+## Architekturdiagramm
 
 ```mermaid
 classDiagram
-
-class Program {
-    +Main()
-}
-
-class TaskManager {
-    +AddTask()
-    +RemoveTask()
-    +MarkTaskAsDone()
-    +GetAllTasks()
-}
-
-class JsonRepository {
-    +Load()
-    +Save()
-}
-
-class TaskItem {
-    +Id
-    +Title
-    +Description
-    +IsCompleted
-    +MarkAsDone()
-}
-
-Program --> TaskManager
-TaskManager --> JsonRepository
-TaskManager --> TaskItem
+TaskManager --> IJsonRepository
+IJsonRepository <|-- JsonRepository
 ```
