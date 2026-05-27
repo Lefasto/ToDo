@@ -124,7 +124,7 @@ public TaskManager(IJsonRepository repository)
 # Beispiel Erweiterung
 
 - mehrere JSON Dateien
-- mehrere Notebooks
+- Datenbank
 
 ---
 
