@@ -1,7 +1,3 @@
-# To-Do Konsolenanwendung (C#)
-
----
-
 # Projekttitel
 To-Do Konsolenanwendung
 
