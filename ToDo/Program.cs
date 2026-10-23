@@ -23,7 +23,7 @@ class Program
             Console.WriteLine("---------------------------------------------------");
             Console.Write("Auswahl: ");
             
-            string input = Console.ReadLine();
+            string ?input = Console.ReadLine();
 
             switch (input)
             {
@@ -60,7 +60,7 @@ class Program
         Console.WriteLine("1) vorhandenes Notebook öffnen");
         Console.WriteLine("2) Neues Notebook erstellen");
         
-        string input = Console.ReadLine();
+        string ?input = Console.ReadLine();
 
         if (input == "1")
         {
@@ -98,7 +98,7 @@ class Program
     static IJsonRepository CreateNewNotebook(NotebookManager notebookManager)
     {
         Console.Write("Name des neuen Notebooks: ");
-        string name = Console.ReadLine();
+        string ?name = Console.ReadLine();
         
         return notebookManager.CreateRepository(name);
     }
